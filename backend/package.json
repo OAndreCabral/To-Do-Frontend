@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./index.js"
@@ -19,8 +20,7 @@
   "homepage": "https://github.com/OAndreCabral/To-Do-Frontend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.3",
-    "uuid": "^9.0.1"
+    "express": "^4.18.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
