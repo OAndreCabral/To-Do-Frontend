@@ -11,6 +11,37 @@
 
 <body>
     <h1>To Do List</h1>
+    <form class="inputContainer">
+        <input id="inputToDo" type="text" placeholder="Digitar Tarefa">
+        <button id="addBotton" type="submit">+</button>
+    </form>
+    <div class="todoContainer">
+        <!-- <div class="todo">
+            <div class="todoInfo">
+                <input type="checkbox" class="todoCompleted" checked>
+                <p class="todoName">Tarefa de matemática</p>
+            </div>
+            <form class="todoButton">
+                <button class="todoEdit">Editar</button>
+                <button class="todoDelete">Deletar</button>
+            </form>
+        </div> -->
+    </div>
+    <div class="modalBackground">
+        <div class="modal">
+            <div class="modalTop">
+                <h1>Editar Tarefa</h1>
+                <span class="closeModal" id="closeModal">&#x2715;</span>
+            </div>
+            <div class="modalBottom">
+                <input type="text" id="editTodoName" placeholder="Digitar Tarefa">
+                <div id="editTodoCompleteWrapper">
+                    <input type="checkbox" id="editTodoCompleteWrapper">Finalizado
+                </div>
+                <button id="saveTodo">Salvar</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 
