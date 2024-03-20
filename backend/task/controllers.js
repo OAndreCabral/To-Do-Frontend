@@ -1,27 +1,23 @@
 const ToDo = [
     {
         id: 1,
-        nome: "NeyMarlon",
         descricao: "tarefa de matematica",
-        status: "a fazer"
+        status: false
     },
     {
         id: 2,
-        nome: "Post Marlone",
         descricao: "escrever nova musica",
-        status: "fazendo"
+        status: false
     },
     {
         id: 3,
-        nome: "Marlon Jackson",
         descricao: "fazer o moonwalk",
-        status: "feito"
+        status: false
     },
     {
         id: 4,
-        nome: "Marklon Zuckerberg",
         descricao: "criar o FaceBahk",
-        status: "fazendo"
+        status: false
     }
 ]
 
@@ -50,15 +46,13 @@ function listOneTask(request, response) {
 
 function createTask(request, response) {
     try {
-        const { nome, descricao, status } = request.body;
-
-        if (!nome || !descricao || !status) {
-            return response.status(400).json({ error: "Todos os campos são obrigatórios: 'nome', 'descricao' e 'status'." });
+        const { descricao, status } = request.body;
+        if (!descricao) {
+            return response.status(400).json({ error: "Todos os campos são obrigatórios: 'descrição', 'status' " });
         }
 
         const newTask = {
             id: ToDo.length + 1,
-            nome: nome,
             descricao: descricao,
             status: status
         };

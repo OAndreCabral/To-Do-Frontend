@@ -56,6 +56,8 @@ body {
 
 .todoButton {
     margin-right: 10px;
+    display: flex;
+    gap: 5px;
 }
 
 .todoButton>button {
