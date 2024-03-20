@@ -104,7 +104,7 @@ async function displayTodos(todoList) {
         let todoCompleted = document.createElement("input")
         todoCompleted.classList.add("todoCompleted");
         todoCompleted.setAttribute("type", "checkbox");
-        todoCompleted.checked = todoElement.completed;
+        todoCompleted.checked = todoElement.status;
 
         let todoDescription = document.createElement("p");
         todoDescription.classList.add("todoDescription");
