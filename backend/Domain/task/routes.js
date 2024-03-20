@@ -1,4 +1,4 @@
-import controllers from "./controllers.js";
+import controllers from "../task/controllers.js";
 import express from "express";
 
 const router = express.Router();

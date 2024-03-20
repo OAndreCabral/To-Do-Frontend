@@ -1,13 +1,13 @@
 // @ts-nocheck
-const todoContainer = document.querySelector(".todoContainer");
-const inputTodo = document.getElementById("inputToDo");
-const addTodo = document.getElementById("addBotton");
-
-const modalBG = document.querySelector(".modalBackground");
 const closeModal = document.querySelector(".closeModal");
+const modalBG = document.querySelector(".modalBackground");
+const todoContainer = document.querySelector(".todoContainer");
+
+const saveTodo = document.getElementById("saveTodo");
+const addTodo = document.getElementById("addBotton");
+const inputTodo = document.getElementById("inputToDo");
 const editTodoName = document.getElementById("editTodoName");
 const editTodoCompleted = document.getElementById("editTodoComplete");
-const saveTodo = document.getElementById("saveTodo")
 
 let todoArray = [];
 
@@ -16,12 +16,12 @@ const url = "http://localhost:3000/tasks/todos";
 async function getTodos() {
     try {
         const response = await fetch(url);
-        const data = await response.json()
+        const data = await response.json();
         return data;
     } catch (error) {
         return error;
     }
-}
+};
 
 async function postTodo() {
     try {
@@ -40,7 +40,7 @@ async function postTodo() {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 async function deleteTodo(todoElement) {
     try {
@@ -48,12 +48,12 @@ async function deleteTodo(todoElement) {
         const response = await fetch(deleteUrl, {
             method: "DELETE",
         });
-        const data = await response.json()
+        const data = await response.json();
         return data;
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 async function putTodo(todoElement) {
     try {
@@ -75,11 +75,11 @@ async function putTodo(todoElement) {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 function openModal(todoElement) {
-    editTodoName.value = todoElement.descricao
-    editTodoCompleted.checked = todoElement.status
+    editTodoName.value = todoElement.descricao;
+    editTodoCompleted.checked = todoElement.status;
     modalBG.style.display = "block";
     closeModal.addEventListener("click", () => {
         modalBG.style.display = "none";
@@ -88,20 +88,20 @@ function openModal(todoElement) {
         modalBG.style.display = "none";
         putTodo(todoElement);
     })
-}
+};
 
 async function displayTodos(todoList) {
     todoList.forEach((todoElement) => {
-        let todo = document.createElement("div")
+        let todo = document.createElement("div");
         todo.classList.add("todo");
 
-        let todoInfo = document.createElement("div")
+        let todoInfo = document.createElement("div");
         todoInfo.classList.add("todoInfo");
 
-        let todoButton = document.createElement("form")
+        let todoButton = document.createElement("form");
         todoButton.classList.add("todoButton");
 
-        let todoCompleted = document.createElement("input")
+        let todoCompleted = document.createElement("input");
         todoCompleted.classList.add("todoCompleted");
         todoCompleted.setAttribute("type", "checkbox");
         todoCompleted.checked = todoElement.status;
@@ -115,14 +115,14 @@ async function displayTodos(todoList) {
         todoEdit.innerHTML = "Editar"
         todoEdit.addEventListener("click", (event) => {
             event.preventDefault();
-            openModal(todoElement)
+            openModal(todoElement);
         });
 
-        let todoDelete = document.createElement("button")
-        todoDelete.classList.add("todoDelete")
+        let todoDelete = document.createElement("button");
+        todoDelete.classList.add("todoDelete");
         todoDelete.innerHTML = "Deletar"
         todoDelete.addEventListener("click", (event) => {
-            deleteTodo(todoElement)
+            deleteTodo(todoElement);
         });
 
         todoInfo.appendChild(todoCompleted);
@@ -133,10 +133,9 @@ async function displayTodos(todoList) {
         todo.appendChild(todoInfo);
         todo.appendChild(todoButton);
 
-        todoContainer.appendChild(todo)
+        todoContainer.appendChild(todo);
     })
-}
-
+};
 
 getTodos()
     .then(todoList => {
